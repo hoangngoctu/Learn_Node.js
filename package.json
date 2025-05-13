@@ -1,0 +1,27 @@
+{
+  "name": "learnnode",
+  "version": "1.0.0",
+  "description": "Hoc NodeJS Begin",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoangngoctu/Learn_Node.js.git"
+  },
+  "keywords": [
+    "nodejs",
+    "react"
+  ],
+  "author": "HoangTu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hoangngoctu/Learn_Node.js/issues"
+  },
+  "homepage": "https://github.com/hoangngoctu/Learn_Node.js#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
