@@ -1,9 +1,7 @@
-const express = require('express') //comon.js
-// import express from 'express' //es6
-const path = require('path') //comon.js
 require('dotenv').config()
-// console.log(">>> check env:",process.env)
-
+const express = require('express') //comon.js
+const configViewEngine = require('./config/viewEngine'); //comon.js
+const webRoutes = require('./routes/web'); //comon.js
 
 
 
@@ -14,29 +12,13 @@ const hostname = process.env.HOSTNAME // hostname
 
 
 //config template engine
-app.set('views', path.join(__dirname, 'views')) //dường dẫn đến thư mục views
-app.set('view engine', 'ejs') 
+configViewEngine(app) // gọi hàm configViewEngine để cấu hình template engine
+app.unsubscribe('/',webRoutes) // sử dụng router webRoute để xử lý các yêu cầu đến đường dẫn '/';
 
 
 
-//Khai baos route
-app.get('/', (req, res) => {
-  res.send('Hello World AnhTUdz! vaf nodemon')
-})
-
-
-app.get('/abc', (req, res) => {
-  res.send('check ABC!')
-})
-
-app.get('/test', (req, res) => {
-  // res.send('<h1>Test</h1>')
-  res.render('sample.ejs') // render file sample.ejs
-})
-
-
-
-
+//khai bao route co the them khi update
+app.use('/',webRoutes);
 
 
 //chạy ứng dụng
