@@ -1,23 +1,13 @@
 const express = require('express');
-const router = express.Router();
+const {getHomePage,getABC,getTest} = require('../controllers/homeController'); // import hàm getHomepage từ homeController.js
+const router = express.Router(); // tạo một router mới
 
+//route.Method('router', handler)
 
+//dinh nghĩa các route
+router.get('/', getHomePage);
+router.get('/abc',getABC);
+router.get('/test',getTest)
 
-
-
-//Khai baos route
-router.get('/', (req, res) => {
-  res.send('Hello World AnhTUdz! vaf nodemon')
-})
-
-
-router.get('/abc', (req, res) => {
-  res.send('check ABC!')
-})
-
-router.get('/test', (req, res) => {
-  // res.send('<h1>Test</h1>')
-  res.render('sample.ejs') // render file sample.ejs
-})
 
 module.exports = router; // xuất ra module router

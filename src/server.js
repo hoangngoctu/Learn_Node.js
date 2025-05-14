@@ -4,7 +4,7 @@ const configViewEngine = require('./config/viewEngine'); //comon.js
 const webRoutes = require('./routes/web'); //comon.js
 
 
-
+//khai bao express
 const app = express() // app express
 const port = process.env.PORT || 8888; // port
 const hostname = process.env.HOSTNAME // hostname
