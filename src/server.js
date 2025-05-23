@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require('express') //comon.js
 const configViewEngine = require('./config/viewEngine'); //comon.js
 const webRoutes = require('./routes/web'); //comon.js
-const mySQL = require('mysql2'); //comon.js
+const connection = require('./config/database'); //comon.js
 
 //khai bao express
 const app = express() // app express
@@ -21,20 +21,14 @@ app.unsubscribe('/',webRoutes) // sử dụng router webRoute để xử lý cá
 app.use('/',webRoutes);
 
 // test connection
-const connection = mySQL.createConnection({
-  host:'localhost',
-  port:3307, // default 3306
-  user:'root', //default: empty
-  password: '123456',
-  database:'hoidanit',
-});
 
+
+//simple query
 connection.query (
 
 'select * from User U',
 function(err,results,fields){
   console.log(">>>results= ",results); // in ra kết quả truy vấn
-  console.log(">>> fields=",fields);  // in ra các trường trong bảng
 }
 );
 
